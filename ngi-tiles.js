@@ -5,7 +5,7 @@ var map = L.map('map', {
   zoom: 8,
   minZoom: 4,
   maxZoom: 15,
-  maxBounds: [[-34.85, 16.25], [-22, 33]]
+  //maxBounds: [[-34.85, 16.25], [-22, 33]]
 });
 
 // Layers
