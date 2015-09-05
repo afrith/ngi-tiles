@@ -1,12 +1,13 @@
 // Map
 
 var map = L.map('map', {
-  center: [-33.5, 19.5],
-  zoom: 8,
+  //center: [-28.5, 24.5],
+  //zoom: 6,
   minZoom: 4,
   maxZoom: 15,
   //maxBounds: [[-34.85, 16.25], [-22, 33]]
 });
+map.fitBounds([[-34.85, 16.25], [-22, 33]]);
 
 // Layers
 
