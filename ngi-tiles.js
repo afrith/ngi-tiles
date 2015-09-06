@@ -32,7 +32,7 @@ var layerControl = L.control.layers({
 $.getJSON('sheet50k.json', function (data) {
   var sheets = L.geoJson(data, {
     style: {
-      stroke: true, color: 'black', weight: 1, opacity: 1,
+      stroke: true, color: 'black', weight: 2, opacity: 1,
       fill: true, fillColor: 'lightblue', fillOpacity: 0
     },
     onEachFeature: function (feature, layer) {
