@@ -38,13 +38,6 @@ $.getJSON('sheet50k.json', function (data) {
     onEachFeature: function (feature, layer) {
       var props = feature.properties;
       layer.bindPopup('Sheet ' + props.s + '<br/>Ed. ' + props.e + ' (' + props.y + ')');
-
-      layer.on('mouseover', function () {
-        this.setStyle({ fillOpacity: 0.5 });
-      });
-      layer.on('mouseout', function () {
-        this.setStyle({ fillOpacity: 0 });
-      });
     }
   });
 
