@@ -7,7 +7,7 @@ var map = L.map('map', {
 });
 map.fitBounds([[-34.85, 16.25], [-22, 33]]);
 
-var fiftyk = L.tileLayer('tiles/{z}/{x}/{y}.png', {
+var fiftyk = L.tileLayer('tiles/50k/{z}/{x}/{y}.png', {
   tms: true,
   attribution: 'State Copyright &copy; 1996&ndash;2013 <a href="http://www.ngi.gov.za/">Chief Directorate: National Geo-spatial Information</a>'
 }).addTo(map);
