@@ -12,6 +12,11 @@ var fiftyk = L.tileLayer('tiles/50k/{z}/{x}/{y}.png', {
   attribution: 'State Copyright &copy; 1996&ndash;2013 <a href="http://www.ngi.gov.za/">Chief Directorate: National Geo-spatial Information</a>'
 }).addTo(map);
 
+var twofiftyk = L.tileLayer('tiles/250k/{z}/{x}/{y}.png', {
+  tms: true,
+  attribution: 'State Copyright &copy; 1996&ndash;2010 <a href="http://www.ngi.gov.za/">Chief Directorate: National Geo-spatial Information</a>'
+});
+
 var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: 'Copyright &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
   opacity: 0.5
@@ -23,7 +28,8 @@ var graticule = L.layerGroup([
 ]);
 
 var layerControl = L.control.layers({
-  "1:50 000 topo": fiftyk
+  "1:50 000 topo": fiftyk,
+  "1:250 000 topo": twofiftyk
 }, {
   "OpenStreetMap": osm,
   "Graticule": graticule
