@@ -41,7 +41,22 @@ $.getJSON('sheet50k.json', function (data) {
     }
   });
 
-  layerControl.addOverlay(sheets, "Sheet info");
+  layerControl.addOverlay(sheets, "1:50k sheet info");
+});
+
+$.getJSON('sheet250k.json', function (data) {
+  var sheets = L.geoJson(data, {
+    style: {
+      stroke: true, color: 'black', weight: 2, opacity: 1,
+      fill: true, fillColor: 'lightblue', fillOpacity: 0
+    },
+    onEachFeature: function (feature, layer) {
+      var props = feature.properties;
+      layer.bindPopup('Sheet ' + props.s + '<br/>Ed. ' + props.e + ' (' + props.y + ')');
+    }
+  });
+
+  layerControl.addOverlay(sheets, "1:250k sheet info");
 });
 
 var hash = new L.Hash(map);
