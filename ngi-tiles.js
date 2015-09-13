@@ -14,6 +14,7 @@ var fiftyk = L.tileLayer('tiles/50k/{z}/{x}/{y}.png', {
 
 var twofiftyk = L.tileLayer('tiles/250k/{z}/{x}/{y}.png', {
   tms: true,
+  maxNativeZoom: 12,
   attribution: 'State Copyright &copy; 1996&ndash;2010 <a href="http://www.ngi.gov.za/">Chief Directorate: National Geo-spatial Information</a>'
 });
 
