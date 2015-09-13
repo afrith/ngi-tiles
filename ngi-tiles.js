@@ -22,17 +22,11 @@ var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   opacity: 0.5
 });
 
-var graticule = L.layerGroup([
-  L.graticule({interval: 0.25}),
-  L.graticule({interval: 1, style: { weight: 2 }})
-]);
-
 var layerControl = L.control.layers({
   "1:50 000 topo": fiftyk,
   "1:250 000 topo": twofiftyk
 }, {
   "OpenStreetMap": osm,
-  "Graticule": graticule
 }).addTo(map);
 
 $.getJSON('sheet50k.json', function (data) {
