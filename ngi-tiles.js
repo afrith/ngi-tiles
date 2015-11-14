@@ -30,6 +30,15 @@ var layerControl = L.control.layers({
   "OpenStreetMap": osm,
 }).addTo(map);
 
+map.on('baselayerchange', function (e) {
+  console.log(e.name);
+  if (e.name == "1:250 000 topo") {
+    $('img#key-img').attr('src', 'key-250k.png');
+  } else {
+    $('img#key-img').attr('src', 'key-50k.png');
+  }
+});
+
 $.getJSON('sheet50k.json', function (data) {
   var sheets = L.geoJson(data, {
     style: {
@@ -68,3 +77,26 @@ var lc = L.control.locate({
 }).addTo(map);
 
 map.on('dragstart', lc._stopFollowing, lc);
+
+var MyControl = L.Control.extend({
+  options: {
+    position: 'topleft'
+  },
+
+  onAdd: function (map) {
+    var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+    var link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', container);
+    link.href = '#';
+    link.innerHTML = '<span class="fa fa-key"></span>';
+    link.title = 'Show map key';
+
+    L.DomEvent.on(link, 'click', L.DomEvent.stop)
+      .on(link, 'click', function() {
+        $('#key-modal').modal();
+      });
+
+    return container;
+  }
+});
+
+map.addControl(new MyControl());
